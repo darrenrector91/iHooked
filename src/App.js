@@ -1,24 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Row, Col, InputGroup, Input } from "reactstrap";
+
+//Components
+import Table from "./Table/Table";
+import Sidebar from "./Sidebar/Sidebar";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <Row>
+        <Col
+          lg="12"
+          style={{
+            border: "2px solid purple",
+            marginBottom: "20px",
+            height: "100px",
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          Nav
+        </Col>
+      </Row>
+      <Row>
+        <Col lg="2" style={{ border: "2px solid orange", padding: "10px" }}>
+          <h3>Sidebar</h3>
+          <Sidebar />
+        </Col>
+        <Col lg="10" style={{ border: "2px solid red", padding: "20px" }}>
+          <Row>
+            <Col lg="12">
+              <InputGroup style={{ marginBottom: "20px" }}>
+                <Input style={{ marginRight: "5px" }} placeholder="date" />
+                <Input style={{ marginRight: "5px" }} placeholder="species" />
+                <Input style={{ marginRight: "5px" }} placeholder="length" />
+                <Input style={{ marginRight: "5px" }} placeholder="weight" />
+                <Input style={{ marginRight: "5px" }} placeholder="location" />
+                <Input style={{ marginRight: "5px" }} placeholder="image" />
+              </InputGroup>
+            </Col>
+            <Col lg="12">
+              <button className="btn btn-info">Submit</button>
+            </Col>
+          </Row>
+          <Row>
+            <Col lg="12" style={{ margin: "20px 0" }}>
+              <Table />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     </div>
   );
 }
